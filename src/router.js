@@ -39,7 +39,7 @@ const routes = [
   {
     path: '/jobs/:jobId',
     name: 'Job',
-    component: loadPage('JobsPage')
+    component: loadPage('JobPage')
   },
   {
     path: '/about',

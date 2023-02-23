@@ -1,7 +1,7 @@
 <template>
      <div class="JobCard card">
         <router-link :to="{ name: 'Job', params: { jobId: job.id } }">
-        <img class="img-fluid w-100 rounded-top" :src="job.imgUrl" :alt="job.title + ' ' + job.company">
+        <img class="img-fluid w-100 rounded-top" :src="job.imgUrl" :alt="job.jobTitle + ' ' + job.company">
         </router-link>
         
         <div class="card-body">
@@ -30,5 +30,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.card{
+height:30em;
+}
 </style>
