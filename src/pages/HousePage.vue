@@ -5,7 +5,7 @@
       <div class="row my-3">
         <div class="col-md-8 m-auto">
           <HouseCard :house="house" :showSeller="false" />
-          <div class="card my-2">
+          <div class="card  my-2">
             <div class="card-body">
               <p><b>
                 {{ house.description }}
@@ -23,9 +23,10 @@
                 <button @click="removeListing" v-if="account.id == house.creatorId" class="btn w-75 p-2 btn-danger">Remove
                   Listing</button>
               </div>
+              
               <div>
                 <span class="me-2">{{house.seller.name }}</span>
-                <img height="50" width="70" :src="house.seller.picture" :alt="house.seller.name">
+                <img class="rounded-circle" height="70" width="70" :src="house.seller.picture" :alt="house.seller.name">
             </div>
               </div>
             </div>
@@ -61,9 +62,10 @@ export default {
     houseId,
     account: computed(() => AppState.account),
     house: computed(() => AppState.house),
+    
     async removeListing() {
         try {
-            if (await Pop.confirm()) {
+            if (await Pop.confirm('Would you like to remove your listing? Are you surely sure?')) {
                 await housesService.removeHouse(houseId)
                 router.push({ name: 'Houses' })
             }
@@ -78,5 +80,7 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
 
 </style>

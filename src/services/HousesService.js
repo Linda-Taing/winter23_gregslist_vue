@@ -1,13 +1,14 @@
 import { api } from "./AxiosService.js";
 import { AppState } from "../AppState.js";
+import { logger } from "../utils/Logger.js";
 
 
 class HousesService {
     async getHouses() {
         const res = await api.get('auth/api/houses')
-        console.log('[get houses]', res.data)
+        // logger.log('[get houses]', res.data)
         AppState.houses = res.data
-        console.log(AppState.houses);
+        // logger.log(AppState.houses);
     }
     async createHouse(houseData) {
         const res = await api.post('auth/api/houses', houseData)
@@ -20,7 +21,7 @@ class HousesService {
         if (i == -1) {
             throw new Error('Sorry Nobody is Home...')
         }
-        AppState.cars.splice(i, 1, res.data)
+        AppState.houses.splice(i, 1, res.data)
     }
     async removeHouse(houseId) {
         const res = await api.delete('auth/api/houses/' + houseId)

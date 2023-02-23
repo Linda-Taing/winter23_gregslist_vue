@@ -19,7 +19,9 @@
         </router-link>
       </div>
       <div>
-        JOBS
+        <router-link :to="{name: 'Jobs'}" class="text-success lighten-30 selectable text-uppercase">
+          JOBS
+        </router-link>
       </div>
 
     </div>

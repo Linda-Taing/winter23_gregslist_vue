@@ -8,6 +8,9 @@ export const AppState = reactive({
 
   cars: [],
   car: null,
-  house: null,
   houses: [],
+  house: null,
+  jobs: [],
+  job: null,
+
 })
