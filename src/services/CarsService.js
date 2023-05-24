@@ -11,14 +11,14 @@ class CarsService {
   }
 
   async createCar(carData) {
-    const res = await api.post('auth/api/cars', carData)
+    const res = await api.post('api/cars', carData)
     AppState.cars.push(res.data)
     return res.data
     // TODO something fancy with the router
   }
 
   async editCar(carData) {
-    const res = await api.put('auth/api/cars/' + carData.id, carData)
+    const res = await api.put('api/cars/' + carData.id, carData)
     let i = AppState.cars.findIndex(c => c.id == carData.id)
     if (i == -1) {
       throw new Error('umm wat!?!')
@@ -28,12 +28,12 @@ class CarsService {
 
   async getCarById(carId) {
     AppState.car = null
-    const res = await api.get('auth/api/cars/' + carId)
+    const res = await api.get('api/cars/' + carId)
     AppState.car = res.data
   }
 
   async removeCar(carId) {
-    const res = await api.delete('auth/api/cars/' + carId)
+    const res = await api.delete('api/cars/' + carId)
     let i = AppState.cars.findIndex(c => c.id == carId)
     if (i != -1) {
       AppState.cars.splice(i, 1)
