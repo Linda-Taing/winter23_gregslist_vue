@@ -4,7 +4,7 @@ import { api } from "./AxiosService.js";
 class CarsService {
 
   async getCars() {
-    const res = await api.get('auth/api/cars')
+    const res = await api.get('api/cars')
     console.log('[get cars]', res.data)
     AppState.cars = res.data
     console.log(AppState.cars);
